@@ -873,6 +873,7 @@ function setMark(v) {
 
 function jumpToMark(v) {
   log("Recalling marker", 5);
+  log(v.vsc.mark);
   if (v.vsc.mark && typeof v.vsc.mark === "number") {
     v.currentTime = v.vsc.mark;
   }
@@ -885,6 +886,7 @@ function setMark2(v) {
 
 function jumpToMark2(v) {
   log("Recalling marker", 5);
+  log(v.vsc.mark2);
   if (v.vsc.mark2 && typeof v.vsc.mark2 === "number") {
     v.currentTime = v.vsc.mark2;
   }

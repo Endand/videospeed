@@ -13,10 +13,18 @@ var tcDefaults = {
     { action: "display", key: 86, value: 0, force: false, predefined: true }, // V
     { action: "slower", key: 83, value: 0.1, force: false, predefined: true }, // S
     { action: "faster", key: 68, value: 0.1, force: false, predefined: true }, // D
-    { action: "rewind", key: 90, value: 10, force: false, predefined: true }, // Z
     { action: "advance", key: 88, value: 10, force: false, predefined: true }, // X
+    { action: "rewind", key: 90, value: 10, force: false, predefined: true }, // Z
+    { action: "advance", key: 81, value: 5, force: false, predefined: true }, // Q
+    { action: "rewind", key: 87, value: 5, force: false, predefined: true }, // W
+    { action: "advance", key: 69, value: 60, force: false, predefined: true }, // E
     { action: "reset", key: 82, value: 1, force: false, predefined: true }, // R
-    { action: "fast", key: 71, value: 1.8, force: false, predefined: true } // G
+    { action: "fast", key: 71, value: 1.6, force: false, predefined: true }, // G
+    { action: "fast", key: 65, value: 2.0, force: false, predefined: true }, // A
+    { action: "mark", key: 49, force: false, predefined: true }, // 1
+    { action: "jump", key: 50, force: false, predefined: true }, // 2
+    { action: "mark2", key: 51, force: false, predefined: true }, // 3
+    { action: "jump2", key: 52, force: false, predefined: true } // 4
   ],
   blacklist: `www.instagram.com
     twitter.com
@@ -127,15 +135,7 @@ function updateCustomShortcutInputText(inputItem, keyCode) {
 }
 
 // List of custom actions for which customValue should be disabled
-var customActionsNoValues = [
-  "pause",
-  "muted",
-  "mark",
-  "jump",
-  "mark2",
-  "jump2",
-  "display"
-];
+var customActionsNoValues = ["pause", "muted", "display"];
 
 function add_shortcut() {
   var html = `<select class="customDo">
