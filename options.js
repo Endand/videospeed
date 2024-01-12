@@ -127,7 +127,15 @@ function updateCustomShortcutInputText(inputItem, keyCode) {
 }
 
 // List of custom actions for which customValue should be disabled
-var customActionsNoValues = ["pause", "muted", "mark", "jump", "display"];
+var customActionsNoValues = [
+  "pause",
+  "muted",
+  "mark",
+  "jump",
+  "mark2",
+  "jump2",
+  "display"
+];
 
 function add_shortcut() {
   var html = `<select class="customDo">
@@ -141,6 +149,8 @@ function add_shortcut() {
     <option value="pause">Pause</option>
     <option value="mark">Set marker</option>
     <option value="jump">Jump to marker</option>
+    <option value="mark2">Set marker 2</option>
+    <option value="jump2">Jump to marker 2</option>
     <option value="display">Show/hide controller</option>
     </select>
     <input class="customKey" type="text" placeholder="press a key"/>
@@ -184,13 +194,12 @@ function validate() {
 
   blacklist.value.split("\n").forEach((match) => {
     match = match.replace(regStrip, "");
-    
+
     if (match.startsWith("/")) {
       try {
         var parts = match.split("/");
 
-        if (parts.length < 3)
-          throw "invalid regex";
+        if (parts.length < 3) throw "invalid regex";
 
         var flags = parts.pop();
         var regex = parts.slice(1).join("/");
@@ -198,7 +207,9 @@ function validate() {
         var regexp = new RegExp(regex, flags);
       } catch (err) {
         status.textContent =
-          "Error: Invalid blacklist regex: \"" + match + "\". Unable to save. Try wrapping it in foward slashes.";
+          'Error: Invalid blacklist regex: "' +
+          match +
+          '". Unable to save. Try wrapping it in foward slashes.';
         valid = false;
         return;
       }
@@ -218,7 +229,9 @@ function save_options() {
   ); // Remove added shortcuts
 
   var rememberSpeed = document.getElementById("rememberSpeed").checked;
-  var forceLastSavedSpeed = document.getElementById("forceLastSavedSpeed").checked;
+  var forceLastSavedSpeed = document.getElementById(
+    "forceLastSavedSpeed"
+  ).checked;
   var audioBoolean = document.getElementById("audioBoolean").checked;
   var enabled = document.getElementById("enabled").checked;
   var startHidden = document.getElementById("startHidden").checked;
@@ -264,7 +277,8 @@ function save_options() {
 function restore_options() {
   chrome.storage.sync.get(tcDefaults, function (storage) {
     document.getElementById("rememberSpeed").checked = storage.rememberSpeed;
-    document.getElementById("forceLastSavedSpeed").checked = storage.forceLastSavedSpeed;
+    document.getElementById("forceLastSavedSpeed").checked =
+      storage.forceLastSavedSpeed;
     document.getElementById("audioBoolean").checked = storage.audioBoolean;
     document.getElementById("enabled").checked = storage.enabled;
     document.getElementById("startHidden").checked = storage.startHidden;
