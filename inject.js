@@ -820,11 +820,11 @@ function runAction(action, value, e) {
       } else if (action === "mark") {
         setMark(v);
       } else if (action === "mark2") {
-        setMark(v);
+        setMark2(v);
       } else if (action === "jump") {
         jumpToMark(v);
       } else if (action === "jump2") {
-        jumpToMark(v);
+        jumpToMark2(v);
       }
     }
   });
@@ -873,20 +873,20 @@ function setMark(v) {
 
 function jumpToMark(v) {
   log("Recalling marker", 5);
-  log(v.vsc.mark);
+  
   if (v.vsc.mark && typeof v.vsc.mark === "number") {
     v.currentTime = v.vsc.mark;
   }
 }
 
 function setMark2(v) {
-  log("Adding marker", 5);
+  log("Adding marker2", 5);
   v.vsc.mark2 = v.currentTime;
 }
 
 function jumpToMark2(v) {
-  log("Recalling marker", 5);
-  log(v.vsc.mark2);
+  log("Recalling marker2", 5);
+  
   if (v.vsc.mark2 && typeof v.vsc.mark2 === "number") {
     v.currentTime = v.vsc.mark2;
   }
