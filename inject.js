@@ -821,10 +821,22 @@ function runAction(action, value, e) {
         setMark(v);
       } else if (action === "mark2") {
         setMark2(v);
-      } else if (action === "jump") {
+      } else if (action === "mark3") {
+        setMark3(v);
+      } else if (action === "mark4") {
+        setMark4(v);
+      } else if (action === "mark5") {
+        setMark5(v);
+      }  else if (action === "jump") {
         jumpToMark(v);
       } else if (action === "jump2") {
         jumpToMark2(v);
+      }else if (action === "jump3") {
+        jumpToMark3(v);
+      }else if (action === "jump4") {
+        jumpToMark4(v);
+      }else if (action === "jump5") {
+        jumpToMark5(v);
       }
     }
   });
@@ -891,6 +903,50 @@ function jumpToMark2(v) {
     v.currentTime = v.vsc.mark2;
   }
 }
+
+function setMark3(v) {
+  log("Adding marker3", 5);
+  v.vsc.mark3 = v.currentTime;
+}
+
+function jumpToMark3(v) {
+  log("Recalling marker3", 5);
+  
+  if (v.vsc.mark3 && typeof v.vsc.mark3 === "number") {
+    v.currentTime = v.vsc.mark3;
+  }
+}
+
+function setMark4(v) {
+  log("Adding marker4", 5);
+  v.vsc.mark4 = v.currentTime;
+}
+
+function jumpToMark4(v) {
+  log("Recalling marker4", 5);
+  
+  if (v.vsc.mark4 && typeof v.vsc.mark4 === "number") {
+    v.currentTime = v.vsc.mark4;
+  }
+}
+
+function setMark5(v) {
+  log("Adding marker5", 5);
+  v.vsc.mark5 = v.currentTime;
+}
+
+function jumpToMark5(v) {
+  log("Recalling marker5", 5);
+  
+  if (v.vsc.mark5 && typeof v.vsc.mark5 === "number") {
+    v.currentTime = v.vsc.mark5;
+  }
+}
+
+
+
+
+
 
 function handleDrag(video, e) {
   const controller = video.vsc.div;

@@ -24,7 +24,13 @@ var tcDefaults = {
     { action: "mark", key: 49,value: 0, force: false, predefined: true }, // 1
     { action: "jump", key: 50, value: 0, force: false, predefined: true }, // 2
     { action: "mark2", key: 51, value: 0, force: false, predefined: true }, // 3
-    { action: "jump2", key: 52, value: 0, force: false, predefined: true } // 4
+    { action: "jump2", key: 52, value: 0, force: false, predefined: true }, // 4
+    { action: "mark3", key: 53, value: 0, force: false, predefined: true }, // 5
+    { action: "jump3", key: 54, value: 0, force: false, predefined: true }, // 6
+    { action: "mark4", key: 55, value: 0, force: false, predefined: true }, // 7
+    { action: "jump4", key: 56, value: 0, force: false, predefined: true }, // 8
+    { action: "mark5", key: 57, value: 0, force: false, predefined: true }, // 9
+    { action: "jump5", key: 48, value: 0, force: false, predefined: true } // 0
   ],
   blacklist: `www.instagram.com
     twitter.com
